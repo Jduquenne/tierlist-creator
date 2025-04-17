@@ -2,7 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [develop]
+    branches:
+      - develop # pour les PR vers develop (features → develop)
+      - main # pour les PR vers main (releases → main)
 
 jobs:
   lint-and-test:
