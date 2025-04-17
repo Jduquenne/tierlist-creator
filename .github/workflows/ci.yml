@@ -1,13 +1,13 @@
-name: CI
+name: CI Build
 
 on:
   pull_request:
     branches:
-      - develop # pour les PR vers develop (features → develop)
-      - main # pour les PR vers main (releases → main)
+      - develop
+      - main
 
 jobs:
-  lint-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,3 +17,5 @@ jobs:
           node-version: "18"
       - name: Install dependencies
         run: npm ci
+      - name: Build project
+        run: npm run build
